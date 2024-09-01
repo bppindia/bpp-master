@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
+import Layout from '../layout/Layout';
 
 // Make sure to bind the modal to your appElement (required for accessibility)
 Modal.setAppElement('#root');
 
 function DataTable() {
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +26,7 @@ function DataTable() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3001/api/user/getBppMember', {
+      const response = await axios.get('https://bppindia.com/api/user/getBppMember', {
         params: {
           page: currentPage,
           limit: pageSize,
@@ -64,57 +66,89 @@ function DataTable() {
   };
 
   return (
+    <Layout>
     <div className="container mx-auto mt-8">
-      <h1 className="text-2xl font-semibold text-gray-700 mb-6">User List</h1>
-      <div className="overflow-x-auto">
+      <h1 className="text-2xl font-semibold text-gray-700 mb-6">Voter ID List</h1>
+      <hr/>
+      <div className="overflow-x-auto my-2">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
             <tr>
               <th
                 onClick={() => handleSort('_id')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Sr {sortField === '_id' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('firstName')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 First Name {sortField === 'firstName' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('lastName')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Last Name {sortField === 'lastName' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('fatherName')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Father Name {sortField === 'fatherName' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
+                onClick={() => handleSort('dob')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                Date Of Birth {sortField === 'dob' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('gender')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                Gender {sortField === 'gender' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('profession')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                profession {sortField === 'profession' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('state')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                State {sortField === 'state' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('country')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                Country {sortField === 'country' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
                 onClick={() => handleSort('voterId')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Voter id {sortField === 'voterId' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('phoneNo')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Phone No{sortField === 'phoneNo' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('email')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Email {sortField === 'email' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('docs')}
-                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer"
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
                 Voter Card {sortField === 'docs' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
@@ -123,7 +157,7 @@ function DataTable() {
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan="5" className="py-2 px-4 border-b border-gray-200 text-center text-sm text-gray-700">
+                <td colSpan="12" className="py-2 px-4 border-b border-gray-200 text-center text-sm text-gray-700">
                   Loading...
                 </td>
               </tr>
@@ -134,6 +168,11 @@ function DataTable() {
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.firstName}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.lastName}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.fatherName}</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.dob}</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.gender}</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.profession }</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.state}</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.city}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.voterIdNo}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.phoneNo}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.email}</td>
@@ -207,6 +246,7 @@ function DataTable() {
 </Modal>
 
     </div>
+    </Layout>
   );
 }
 
