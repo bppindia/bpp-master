@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 py-2 w-full border-b bg-white">
+    <header className="py-2 w-full border-b bg-white">
       <nav>
         <div className="max-w-full mx-auto">
           <div className="flex justify-between items-center mx-auto w-5/6">

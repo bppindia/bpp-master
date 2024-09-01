@@ -226,7 +226,7 @@ function DataTable() {
   isOpen={modalOpen}
   onRequestClose={handleCloseModal}
   contentLabel="Voter ID Document"
-  className="fixed inset-0 bg-white p-4 w-full max-w-3xl h-3/4 mx-auto my-auto rounded shadow-lg relative"
+  className="bg-white p-4 w-full max-w-3xl h-3/4 mx-auto my-auto rounded shadow-lg relative flex items-center align-middle justify-center"
   overlayClassName="fixed inset-0 bg-black bg-opacity-50"
 >
   <button
