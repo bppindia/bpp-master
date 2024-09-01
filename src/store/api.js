@@ -1,4 +1,4 @@
-export const domain = "https://bppindia.com";
+export const domain = "https://api.bppindia.com";
 // export const domain = "http://localhost:3001";
 
 const endpoints = {

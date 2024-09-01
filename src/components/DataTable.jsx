@@ -26,7 +26,7 @@ function DataTable() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://bppindia.com/api/user/getBppMember', {
+      const response = await axios.get('https://api.bppindia.com/api/user/getBppMember', {
         params: {
           page: currentPage,
           limit: pageSize,
