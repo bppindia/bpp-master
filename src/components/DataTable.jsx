@@ -123,10 +123,16 @@ function DataTable() {
                 State {sortField === 'state' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
-                onClick={() => handleSort('country')}
+                onClick={() => handleSort('city')}
                 className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
               >
-                Country {sortField === 'country' && (sortOrder === 'asc' ? '↑' : '↓')}
+                Taluka/city/village {sortField === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('district')}
+                className="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-sm font-semibold text-gray-700 cursor-pointer text-nowrap"
+              >
+                District {sortField === 'district' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('voterId')}
@@ -173,6 +179,7 @@ function DataTable() {
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.profession }</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.state}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.city}</td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.district}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.voterIdNo}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.phoneNo}</td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">{row.email}</td>
