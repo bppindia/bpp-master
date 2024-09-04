@@ -3,6 +3,7 @@ export const domain = "https://api.bppindia.com";
 
 const endpoints = {
   loginMaster: "/auth/loginMaster/",
+  getBppMember: "/user/getBppMember/",
 };
 
 
