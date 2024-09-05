@@ -8,8 +8,8 @@ export const navItems: NavItem[] = [
     label: 'Dashboard'
   },
   {
-    title: 'Students',
-    href: '/student',
+    title: 'Enroll Details',
+    href: '/Enroll',
     icon: 'user',
     label: 'Student'
   },

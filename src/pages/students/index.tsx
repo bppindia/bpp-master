@@ -34,7 +34,7 @@ export default function StudentPage() {
       <Breadcrumbs
         items={[
           { title: 'Dashboard', link: '/' },
-          { title: 'Students', link: '/students' }
+          { title: 'Enrolled Users', link: '/Enroll' }
         ]}
       />
       <StudentsTable

@@ -14,8 +14,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+// Update the schema to include a password field
 const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email address' })
+  email: z.string().email({ message: 'Enter a valid email address' }),
+  password: z.string().min(6, { message: 'Password must be at least 6 characters long' }) // Example validation
 });
 
 type UserFormValue = z.infer<typeof formSchema>;
@@ -24,7 +26,8 @@ export default function UserAuthForm() {
   const router = useRouter();
   const [loading] = useState(false);
   const defaultValues = {
-    email: 'demo@gmail.com'
+    email: '',
+    password: '' // Set default value for password
   };
   const form = useForm<UserFormValue>({
     resolver: zodResolver(formSchema),
@@ -41,7 +44,7 @@ export default function UserAuthForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full space-y-2"
+          className="w-full space-y-4" // Increased space for additional field
         >
           <FormField
             control={form.control}
@@ -61,13 +64,32 @@ export default function UserAuthForm() {
               </FormItem>
             )}
           />
+          
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input
+                    type="password"
+                    placeholder="Enter your password..."
+                    disabled={loading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <Button disabled={loading} className="ml-auto w-full" type="submit">
-            Continue With Email
+            Login
           </Button>
         </form>
       </Form>
-      <div className="relative">
+      {/* <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
@@ -76,7 +98,7 @@ export default function UserAuthForm() {
             Or continue with
           </span>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

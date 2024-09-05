@@ -7,7 +7,7 @@ import { ChevronLeftIcon, ShareIcon } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import InterestChannel from './components/interest-channel';
 import StudentFeedTable from './components/student-feed-table';
-import { useGetStudents } from './queries/queries';
+import { useGetEnrollData } from './queries/queries';
 
 export default function StudentDetailPage() {
   const [searchParams] = useSearchParams();
@@ -15,7 +15,7 @@ export default function StudentDetailPage() {
   const pageLimit = Number(searchParams.get('limit') || 10);
   const country = searchParams.get('search') || null;
   const offset = (page - 1) * pageLimit;
-  const { data, isLoading } = useGetStudents(offset, pageLimit, country);
+  const { data, isLoading } = useGetEnrollData(offset, pageLimit, country);
   const users = data?.users;
   const totalUsers = data?.total_users; //1000
   const pageCount = Math.ceil(totalUsers / pageLimit);

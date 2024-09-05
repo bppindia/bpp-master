@@ -9,9 +9,9 @@ export default function StudentTableActions() {
         <TableSearchInput placeholder="Search By Voter No" />
       </div>
       <div className="flex gap-3">
-        <PopupModal
+        {/* <PopupModal
           renderModal={(onClose) => <StudentCreateForm modalClose={onClose} />}
-        />
+        /> */}
       </div>
     </div>
   );

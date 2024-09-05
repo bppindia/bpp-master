@@ -1,5 +1,5 @@
-export const domain = "https://api.bppindia.com";
-// export const domain = "http://localhost:3001";
+// export const domain = "https://api.bppindia.com";
+export const domain = "http://localhost:3001";
 
 const endpoints = {
   loginMaster: "/auth/loginMaster/",

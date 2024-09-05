@@ -17,7 +17,7 @@ export default function StudentsTable({
     <>
       <StudentTableActions />
       {users && (
-        <DataTable columns={columns} data={users} pageCount={pageCount} />
+        <DataTable columns={columns} data={users} pageCount={pageCount}  />
       )}
     </>
   );
