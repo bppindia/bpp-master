@@ -94,9 +94,9 @@ export default function DashboardPage() {
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">+53</div>
+                  <div className="text-2xl font-bold">+36</div>
                   <p className="text-xs text-muted-foreground">
-                    +180.1% from last month
+                    +36 Enroll from last month
                   </p>
                 </CardContent>
               </Card>
@@ -119,9 +119,9 @@ export default function DashboardPage() {
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">+36</div>
+                  <div className="text-2xl font-bold">+19</div>
                   <p className="text-xs text-muted-foreground">
-                    +36 from last month
+                    +19 from last month
                   </p>
                 </CardContent>
               </Card>

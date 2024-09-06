@@ -14,10 +14,10 @@ export const navItems: NavItem[] = [
     label: 'Student'
   },
   {
-    title: 'Login',
+    title: 'Logout',
     href: '/login',
     icon: 'login',
-    label: 'Login'
+    label: 'Logout'
   }
 ];
 
